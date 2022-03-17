@@ -12,13 +12,34 @@
                     <div style="margin: 40px 0!important">
                         <small style="color: #636363; ">Selecione uma forma de pagamento abaixo para  <br> finalizar seu pedido</small>
                     </div>
-                    <div class="card d-flex  justify-content-between" style="padding: 10px 10px;cursor:pointer; color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
-                        
-                        <div class="d-flex">
-                            <span class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">1</span>
-                            <strong style="margin-left:10px">Cartão de Crédito</strong>
+                    <div class="card " style="padding: 10px 10px;cursor:pointer; color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <span class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">1</span>
+                                <strong style="margin-left:10px">Cartão de Crédito</strong>
+                            </div>
+                            <small>à vista</small>
                         </div>
-                        <small>à vista</small>
+                        <div>
+                            <div class="d-flex" style="margin-top:20px" >
+                                <div>
+                                    <small>Nome do Cartão</small>
+                                    <br>
+                                    <input type="text" style="font-size:15px; padding: 5px" >
+                                </div>
+                                <div style="margin-left:50px; ">
+                                    <small>CVC</small>
+                                    <br>
+                                    <input type="number" style="font-size:15px; padding: 5px; width:100px!important" >
+                                </div>
+                                <br>
+                            </div>
+                            <div style="margin-top: 20px">
+                                <small>Número do Cartão</small>
+                                <br>
+                                <input type="number" style="font-size:15px; padding: 5px" >
+                            </div>
+                        </div>
                     </div>
                     <div class="card d-flex  align-items-center justify-content-between" style="cursor:pointer; padding: 10px 10px; color: #636363; margin-top:5px; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
                         <div class="d-flex align-items-center ">
