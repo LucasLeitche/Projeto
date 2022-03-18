@@ -12,55 +12,88 @@
                     <div style="margin: 40px 0!important">
                         <small style="color: #636363; ">Selecione uma forma de pagamento abaixo para  <br> finalizar seu pedido</small>
                     </div>
-                    <div class="card " style="padding: 10px 10px;cursor:pointer; color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
+                    <div class="card "  style="margin-top: 5px; padding: 10px 10px;color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
-                                <span class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">1</span>
+                                <span @click="handleClick(pagamento.cartao)" class="d-flex color-white align-items-center justify-content-center" style="cursor:pointer;color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">1</span>
                                 <strong style="margin-left:10px">Cartão de Crédito</strong>
                             </div>
                             <small>à vista</small>
                         </div>
-                        <div>
+                        <div v-if="pagamento.cartao.showCartao">
                             <div class="d-flex" style="margin-top:20px" >
                                 <div>
                                     <small>Nome do Cartão</small>
                                     <br>
-                                    <input type="text" style="font-size:15px; padding: 5px" >
+                                    <input type="text" v-model="pagamento.cartao.nome" style="font-size:15px; padding: 5px" >
                                 </div>
                                 <div style="margin-left:50px; ">
                                     <small>CVC</small>
                                     <br>
-                                    <input type="number" style="font-size:15px; padding: 5px; width:100px!important" >
+                                    <input type="number" v-model="pagamento.cartao.cvc" style="font-size:15px; padding: 5px; width:100px!important" >
                                 </div>
                                 <br>
                             </div>
                             <div style="margin-top: 20px">
                                 <small>Número do Cartão</small>
                                 <br>
-                                <input type="number" style="font-size:15px; padding: 5px" >
+                                <input type="number" v-model="pagamento.cartao.numero" style="font-size:15px; padding: 5px" >
                             </div>
                         </div>
                     </div>
-                    <div class="card d-flex  align-items-center justify-content-between" style="cursor:pointer; padding: 10px 10px; color: #636363; margin-top:5px; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
-                        <div class="d-flex align-items-center ">
-                            <span class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">2</span>
-                            <strong style="margin-left:10px">Boleto</strong>
+                    <div class="card "  style="margin-top: 5px; padding: 10px 10px;cursor:pointer; color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <span @click="handleClick(pagamento.boleto)" class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">2</span>
+                                <strong style="margin-left:10px">Boleto</strong>
+                            </div>
+                            <small>à vista</small>
                         </div>
-                        <small>à vista</small>
+                        <div v-if="pagamento.boleto.showBoleto">
+                            <div class="d-flex" style="margin-top:20px" >
+                                <div>
+                                    <small>Codigo Boleto</small>
+                                    <br>
+                                    <input :disabled="true" type="text" v-model="pagamento.boleto.barcod" style="font-size:15px; padding: 5px" >
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card d-flex  align-items-center justify-content-between" style="cursor:pointer; padding: 10px 10px; color: #636363; margin-top:5px; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
-                        <div class="d-flex align-items-center ">
-                            <span class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">3</span>
-                            <strong style="margin-left:10px">Cartão de Debito</strong>
+                    <div class="card "  style="margin-top: 5px; padding: 10px 10px;cursor:pointer; color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <span @click="handleClick(pagamento.debito)" class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">3</span>
+                                <strong style="margin-left:10px">Cartão de Debito</strong>
+                            </div>
+                            <small>à vista</small>
                         </div>
-                        <small>à vista</small>
+                        <div v-if="pagamento.debito.showDebito">
+                            <div class="d-flex" style="margin-top:20px" >
+                                <div>
+                                    <small>Número do Cartão</small>
+                                    <br>
+                                    <input  type="text" v-model="pagamento.debito.numero" style="font-size:15px; padding: 5px" >
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card d-flex  align-items-center justify-content-between" style="cursor:pointer; padding: 10px 10px; color: #636363; margin-top:5px; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
-                        <div class="d-flex align-items-center ">
-                            <span class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">4</span>
-                            <strong style="margin-left:10px">Pix</strong>
+                    <div class="card "  style="margin-top: 5px; padding: 10px 10px;cursor:pointer; color: #636363; border-bottom: 3px solid rgba(189, 188, 188, 0.637)!important;">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <span @click="handleClick(pagamento.pix)" class="d-flex color-white align-items-center justify-content-center" style="color: #e5e5e5; border: 1px solid transparent; border-radius:50%; width: 18px; height:18px; background: #1b56d6;">2</span>
+                                <strong style="margin-left:10px">Pix</strong>
+                            </div>
+                            <small>à vista</small>
                         </div>
-                        <small>à vista</small>
+                        <div v-if="pagamento.pix.showPix">
+                            <div class="d-flex" style="margin-top:20px" >
+                                <div>
+                                    <small>Pix Copia e Cola</small>
+                                    <br>
+                                    <input :disabled="true" type="text" v-model="pagamento.pix.chavepix" style="font-size:15px; padding: 5px" >
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div style="float:right; align-text:right">
                         <h3>R${{'14,00'}}</h3>
@@ -77,7 +110,30 @@
 
 <script>
 export default {
-    
+    props:{
+        pagamento:{
+            type: Object
+        },
+    },
+    methods:{
+        handleClick(item){
+            console.log(item == this.pagamento.cartao )
+            if(this.pagamento.debito == item){
+                this.pagamento.debito.showDebito = !this.pagamento.debito.showDebito
+                return;
+            }
+
+            if(this.pagamento.boleto == item){
+                this.pagamento.boleto.showboleto = !this.pagamento.boleto.showboleto
+                return;
+            }
+
+            if(this.pagamento.cartao == item){
+                this.pagamento.cartao.showcartao = !this.pagamento.cartao.showcartao
+                return;
+            }
+        }
+    }
 }
 </script>
 
