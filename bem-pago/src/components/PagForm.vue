@@ -148,9 +148,9 @@
                 </div>
             </div>
         </div>
-        <div style="background:#e5e5e5" class="footer ">
+        <div style="background:#e5e5e5" v-if="!donePayment" class="footer ">
             <button class="btn" @click="handleBack" style="margin-right:10px!important; border-color:#db2525; background: #db2525;" >Voltar</button>
-            <button class="btn" v-if="!donePayment" @click="handleDonePayment">Enviar</button>
+            <button class="btn" @click="handleDonePayment">Enviar</button>
         </div>
     </div>
 </template>
