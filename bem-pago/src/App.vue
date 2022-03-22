@@ -55,6 +55,9 @@ body {
 .align-items-center{
   align-items:center !important;
 }
+.align-items-end{
+  align-items:flex-end !important;
+}
 .container{
   padding: 0 40px 0 40px !important;
 }
@@ -72,6 +75,7 @@ body {
   margin: 0;
   font-size:16px;
   text-transform: uppercase;
+  cursor: pointer;
 
 }
 

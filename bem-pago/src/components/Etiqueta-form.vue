@@ -23,7 +23,7 @@
             </div>
             <div class="d-flex flex-direction-column">
                 <h4>Observações:</h4>
-            <textarea v-model="pedido.observacao" cols="30" rows="10"></textarea>
+            <textarea v-model="pedido.observacao" cols="30" rows="10" style="padding:10px; font-size:14px"></textarea>
             </div>
         </div>
             <div style="background:#e5e5e5" class="footer ">

@@ -2,7 +2,7 @@
     <div id="principal"  >
         <bar-top-form />
         <etiqueta :pedido="pedido"  @pagamento="handleShowCheckout()" v-if="showEtiqueta"/>
-        <pag-form v-if="showCheckoutVenda" :pagamento="pedido.pagamento"/>
+        <pag-form v-if="showCheckoutVenda" :pedido="pedido" :pagamento="pedido.pagamento" @retornar="handleShowPag"/>
     </div>
 </template>
 
@@ -23,10 +23,10 @@ export default {
             showCheckoutVenda: false,
             pedido: {
                 pagamento: {
-                    cartao: {showCartao: false},
-                    debito:{showDebito: false},
-                    boleto:{showBoleto: false, barcod: 12345678910111213},
-                    pix:{showPix:false, chavepix: 12345678910111213}
+                    cartao: {showCartao: false, selected: null},
+                    debito:{showDebito: false, selected: null},
+                    boleto:{showBoleto: false, barcod: 12345678910111213, selected: null},
+                    pix:{showPix:false, chavepix: 12345678910111213, selected: null}
                 },
                 items:[],
                 quantidade: 0,
@@ -35,6 +35,12 @@ export default {
         }
     },
     methods:{
+
+         handleShowPag(){
+            this.showCheckoutVenda = false
+            this.showEtiqueta = true
+            this.pedido = {}
+        },
         handleShowCheckout(){
             this.showEtiqueta = false
             this.showCheckoutVenda = true
